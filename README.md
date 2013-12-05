@@ -77,3 +77,7 @@ Only simple types can be used. Lists and maps will be serialized.
 - always import dartodef as it is. DO NOT USE "as"
 - only variables that are already initialized can be used. And the initialization needs to match the type (for example mapping on string when code looks like: "String variable = null;" failes)
 - use const if you want to make sure that dead is removed
+
+## Plans for the future
+
+- load values for each environment from dart scripts or other external files (JSON, YAML)
