@@ -8,7 +8,7 @@ dartodef and pass the name of the property as environment variable to the
 
 ## Setup dartodef
 
-*pubspec.yaml*
+**pubspec.yaml**
 
 ```yaml
 name: dartodef_sample_setup
@@ -27,7 +27,7 @@ transformers:
         doIt: false
 ```
 
-*main.dart* (for example)
+**main.dart** (for example)
 
 ```dart
 library sample_app;
