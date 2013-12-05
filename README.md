@@ -43,6 +43,14 @@ class Test {
 }
 ```
 
+Running pub build now:
+
+```
+DARTODEF=live pub build
+```
+
+If no environment is set the default values will be used.
+
 ## Available types
 
 ```yaml
@@ -63,7 +71,6 @@ transformers:
 ```
 
 Only simple types can be used. Lists and maps will be serialized.
-
 
 ## What you need to know
 
