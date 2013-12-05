@@ -4,11 +4,11 @@ dartodef is a transformer (preprocessor) for ```pub build``` which replaces vari
 values on compile-time. The values can be defined in the pubspec.yaml. For
 different environment values create a property in the transformer options for
 dartodef and pass the name of the property as environment variable to the
-```pub build``` process. ** PLEASE NOTICE: dartson is in alpha status. I just wrote it in a few hours **
+```pub build``` process. **PLEASE NOTICE: dartson is in alpha status. I just wrote it in a few hours**
 
 ## Setup dartodef
 
-** pubspec.yaml **
+*pubspec.yaml*
 
 ```yaml
 name: dartodef_sample_setup
@@ -27,7 +27,7 @@ transformers:
         doIt: false
 ```
 
-** main.dart ** (for example)
+*main.dart* (for example)
 
 ```dart
 library sample_app;
