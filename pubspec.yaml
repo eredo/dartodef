@@ -1,13 +1,13 @@
 name: dartodef
-version: 0.1.0
 author: Eric Schneller <eric@schnellers.name>
+version: 0.1.1
 homepage: https://github.com/eredo/dartodef
-environment:
-  sdk: ">=1.0.0"
 description: |-
   Set variable values in compile time. Set the environment variable DARTODEF
   to define which property of the map defined in the pubspec.yaml should be used.
+environment:
+  sdk: '>=1.0.0'
 dependencies:
-  analyzer: ">=0.10.3 <0.11.0"
-  barback: ">=0.9.0 <0.10.0"
-  source_maps: ">=0.9.0 <0.10.0"
+  analyzer: '>=0.10.3 <0.12.0'
+  barback: '>=0.9.0 <0.12.0'
+  source_maps: '>=0.9.0 <0.10.0'
