@@ -1,4 +1,4 @@
-// Copyright (c) 2013, Eric Schneller.
+// Copyright (c) 2016, Eric Schneller.
 // Use of this source code is governed by a MIT-license that can
 // be found in the LICENSE file.
 
@@ -14,13 +14,12 @@ import 'dart:io';
 //import 'dart:mirrors';
 import 'dart:convert' show JSON;
 import 'package:barback/barback.dart';
-import 'package:analyzer/src/generated/java_core.dart' show CharSequence;
 import 'package:analyzer/src/generated/ast.dart';
 import 'package:analyzer/src/generated/error.dart';
 import 'package:analyzer/src/generated/parser.dart';
 import 'package:analyzer/src/generated/scanner.dart';
 import 'package:source_maps/refactor.dart';
-import 'package:source_maps/span.dart' show SourceFile;
+import 'package:source_span/source_span.dart' show SourceFile;
 
 class DartodefTransformer extends Transformer {
   static final String DARTODEF_ENV = 'DARTODEF';
@@ -43,15 +42,10 @@ class DartodefTransformer extends Transformer {
   DartodefTransformer.asPlugin(BarbackSettings settings) :
     this(_readDefinitions(settings.configuration));
 
-  Future<bool> isPrimary(Asset input) {
-    if (input.id.extension != '.dart') {
-      return new Future.value(false);
-    }
-
+  Future<bool> isPrimary(AssetId input) {
     // TODO(eric): Not the best way. It's necessary to import the dartodef library
     // without any "as" definition to ensure the functionality.
-    return input.readAsString().then(
-      (c) => c.contains("@Definition"));
+    return new Future.value(input.extension == '.dart');
   }
 
   Future apply(Transform transform) {
@@ -64,7 +58,7 @@ class DartodefTransformer extends Transformer {
         var url = id.path.startsWith('lib/')
             ? 'package:${id.package}/${id.path.substring(4)}' : id.path;
 
-        var sourceFile = new SourceFile.text(url, content);
+        var sourceFile = new SourceFile(content, url: url);
         var unit = _parseCompilationUnit(content);
         var code = new TextEditTransaction(content, sourceFile);
 
@@ -208,7 +202,7 @@ class _ErrorCollector extends AnalysisErrorListener {
 
 CompilationUnit _parseCompilationUnit(String code) {
   var errorListener = new _ErrorCollector();
-  var reader = new CharSequenceReader(new CharSequence(code));
+  var reader = new CharSequenceReader(code);
   var scanner = new Scanner(null, reader, errorListener);
   var token = scanner.tokenize();
   var parser = new Parser(null, errorListener);

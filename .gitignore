@@ -5,3 +5,4 @@ test/build
 .DS_Store
 pubspec.lock
 test/pubspec.lock
+.packages

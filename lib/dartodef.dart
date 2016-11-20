@@ -1,4 +1,4 @@
-// Copyright (c) 2013, Eric Schneller.
+// Copyright (c) 2016, Eric Schneller.
 // Use of this source code is governed by a MIT-license that can
 // be found in the LICENSE file.
 

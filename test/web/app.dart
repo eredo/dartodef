@@ -1,5 +1,5 @@
 import 'dart:html';
-import '../lib/test_lib.dart';
+import 'package:dartodef_test/test_lib.dart';
 
 main() {
   document.body.innerHtml += OUR_STRING + '<br />';
