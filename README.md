@@ -39,7 +39,7 @@ const String ENV = 'development';
 
 class Test {
   @Definition(name:'doIt')
-  static bool do = false;
+  static bool done = false;
 }
 ```
 
@@ -81,3 +81,11 @@ Only simple types can be used. Lists and maps will be serialized.
 ## Plans for the future
 
 - load values for each environment from dart scripts or other external files (JSON, YAML)
+
+
+### How to run tests
+
+```
+DARTODEF=test pub serve --port=4444 test/
+pub run test --pub-serve=4444 
+```

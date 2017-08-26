@@ -1,6 +1,6 @@
 name: dartodef
 author: Eric Schneller <eric@schnellers.name>
-version: 0.1.3
+version: 0.1.4
 homepage: https://github.com/eredo/dartodef
 description: |-
   Set variable values in compile time. Set the environment variable DARTODEF
@@ -8,7 +8,19 @@ description: |-
 environment:
   sdk: '>=1.20.0'
 dependencies:
-  analyzer: '>=0.28.0 <0.30.0'
+  analyzer: '>=0.28.0 <0.31.0'
   barback: '>=0.14.0 <0.16.0'
   source_maps: '>=0.10.0 <0.11.0'
   source_span: '>=1.0.3 <2.0.0'
+dev_dependencies:
+  test: '^0.12.0'
+transformers:
+- dartodef:
+    test:
+      myString: 'newString'
+      myInt: 1
+      myDouble: 1.123
+      myNum: 1.1
+- test/pub_serve:
+    $include:
+      - test/**.dart
